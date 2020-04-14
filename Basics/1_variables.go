@@ -3,10 +3,21 @@
  * Date: lun abr 13 20:02:40 CEST 2020
  * Static strongly typed language
  * It compiles to machine code
-*/
+ */
 package main
 
 import "fmt"
+
+func swapRune(r rune) rune {
+	switch {
+	case 97 <= rune && r <= 122:
+		return r - 32
+	case 65 <= r && r <= 90:
+		return r + 32
+	default:
+		return r
+	}
+}
 
 func main() {
 	var v1 int
@@ -14,32 +25,34 @@ func main() {
 
 	v1 = 100
 
-	fmt.Println("Value stored in v1 ::",v1);
-	fmt.Println("Value stored in v2 ::",v2);
+	fmt.Println("Value stored in v1 ::", v1)
+	fmt.Println("Value stored in v2 ::", v2)
 
-	const pi = 3.14;
-	e := 2.71; //Type determined by compiler.
+	const pi = 3.14
+	e := 2.71 //Type determined by compiler.
 
-	fmt.Println("Pi = ", pi);
-	fmt.Println("E = ", e);
+	fmt.Println("Pi = ", pi)
+	fmt.Println("E = ", e)
 
 	var text string
 
 	text = "I am just playing..."
-	fmt.Println(text);
+	fmt.Println(text)
 
-	var bool boolean = true
-	var byte byte;
+	var X uint8 = 225
+	var Y int16 = 32767
+	var a complex128 = complex(6, 2)
+	var b complex64 = complex(9, 2)
+	str := "Hello world"
 
-	fmt.Println("Basic data types in Go: ");
-	fmt.Println("Boolean: ");
-	fmt.Println("Byte: ");
-	fmt.Println("Integer: ");
-	fmt.Println("Unsigned integer: ");
-	fmt.Println("Float: ");
-	fmt.Println("String: ")
-	fmt.Println("Rune: ")
-	fmt.Println("Complex: ")
+	fmt.Println("Swap rune: ", swapRune('a'))
 
+	fmt.Println("Basic data types in Go: ")
+
+	fmt.Println("Unsigned integer: ", X)
+	fmt.Println("Integer: ", Y)
+	fmt.Println("Complex number 128: ", a)
+	fmt.Println("Complex number 64: ", b)
+	fmt.Println("String: ", str)
 
 }
