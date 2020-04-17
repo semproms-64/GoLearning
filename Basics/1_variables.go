@@ -1,58 +1,54 @@
-/*
- * Author: Luis Adelantado Romero
- * Date: lun abr 13 20:02:40 CEST 2020
- * Static strongly typed language
- * It compiles to machine code
- */
 package main
 
-import "fmt"
-
-func swapRune(r rune) rune {
-	switch {
-	case 97 <= rune && r <= 122:
-		return r - 32
-	case 65 <= r && r <= 90:
-		return r + 32
-	default:
-		return r
-	}
-}
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
-	var v1 int
-	var v2 int //Initialized to 0 by default
 
-	v1 = 100
+	/*-----------------------------------------------------------------------------------------*/
+	/*Numeric types: Integers*/
+	var myInt8 int8 = 97
+	var myInt = 120
+	var myUint uint = 500
+	var myHexNumber = 0xFF
+	var myOctalNumber = 034
 
-	fmt.Println("Value stored in v1 ::", v1)
-	fmt.Println("Value stored in v2 ::", v2)
+	fmt.Printf("%d, %d, %d, %#x, %#o\n", myInt8, myInt, myUint, myHexNumber, myOctalNumber)
 
-	const pi = 3.14
-	e := 2.71 //Type determined by compiler.
+	/*Integer type alias*/
+	var myByte byte = 'A'
+	var myRune rune = '♬'
 
-	fmt.Println("Pi = ", pi)
-	fmt.Println("E = ", e)
+	fmt.Printf("%c = %d and %c = %U\n", myByte, myByte, myRune, myRune)
 
-	var text string
+	var numb byte = 120
+	fmt.Printf("%c\n", numb)
 
-	text = "I am just playing..."
-	fmt.Println(text)
+	var numb_1 rune = 500
+	fmt.Printf("%c\n", numb_1)
 
-	var X uint8 = 225
-	var Y int16 = 32767
-	var a complex128 = complex(6, 2)
-	var b complex64 = complex(9, 2)
-	str := "Hello world"
+	var caracter byte = 'a'
+	fmt.Printf("Result: %c\n", caracter-32)
+	var caracter2 byte = 'z'
+	fmt.Printf("Result2: %c\n", caracter2-32)
 
-	fmt.Println("Swap rune: ", swapRune('a'))
+	/*-----------------------------------------------------------------------------------------*/
+	/*Numeric types: Floating Point Types*/
+	var a, b = 4, 5
+	var res1 = (a + b) * (a + b) / 2
 
-	fmt.Println("Basic data types in Go: ")
+	a++
+	b += 10
+	var res2 = a ^ b
 
-	fmt.Println("Unsigned integer: ", X)
-	fmt.Println("Integer: ", Y)
-	fmt.Println("Complex number 128: ", a)
-	fmt.Println("Complex number 64: ", b)
-	fmt.Println("String: ", str)
+	var r = 3.5
+	var res3 = math.Pi * r * r
+
+	fmt.Printf("res1 : %v, res2 : %v, res3 : %v\n", res1, res2, res3)
+
+	/*-----------------------------------------------------------------------------------------*/
+	/*Boolean*/
 
 }
