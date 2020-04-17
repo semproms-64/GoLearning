@@ -60,7 +60,28 @@ func main() {
 
 	/*-----------------------------------------------------------------------------------------*/
 	/*Complex Number*/
+	var hj = 5 + 7i
 
+	var df = 3.57
+	var t = 6.23
+	var y = complex(df, t)
+
+	fmt.Println(y)
+	fmt.Println(hj)
 	/*-----------------------------------------------------------------------------------------*/
 	/*Strings*/
+
+	var name = "Steve Jobs"
+	var description = "\t\tScience is cool. Super cool\n Practical guide\t\n"
+
+	fmt.Println(name, description)
+
+	/*-----------------------------------------------------------------------------------------*/
+	/*Type conversion: Go has not any implicit type conversion.*/
+
+	var conv int64 = 34
+	var trf int = int(conv)
+
+	fmt.Println(trf)
+
 }
